@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_assets import Bundle, Environment
-from flask_sqlalchemy import SQLAlchemy
 
 from app.api.models import db
 
@@ -25,9 +24,9 @@ def init_app():
             css = Bundle(
                 "node_modules/bulma/css/bulma.min.css",
                 filters="cssmin",
-                output="bundle.min.css",
+                output="bundle.min.css"
             )
-
+            
             js = Bundle(
                 filters="jsmin",
                 output="bundle.min.js",
@@ -35,7 +34,7 @@ def init_app():
 
             assets.register("main_css", css)
             assets.register("main_js", js)
-            css.build()
-            js.build()
+            css.build(force=True)
+            #js.build(force=True) # Remove comments when you have JS files to bundle. 
 
         return app

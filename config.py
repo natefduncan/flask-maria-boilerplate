@@ -24,6 +24,7 @@ class Config:
 
 class Development(Config):
     FLASK_ENV = "development"
+    ENV = "development"
     DEBUG = True
     TESTING = True
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:password@db/app"
